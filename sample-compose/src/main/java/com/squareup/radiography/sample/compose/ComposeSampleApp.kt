@@ -38,6 +38,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import radiography.ExperimentalRadiographyComposeApi
@@ -123,6 +124,7 @@ internal const val LIVE_HIERARCHY_TEST_TAG = "live-hierarchy"
               liveHierarchy.value.orEmpty(),
               fontFamily = FontFamily.Monospace,
               fontSize = 6.sp,
+              lineHeight = 1.2.em,
               modifier = Modifier.testTag(LIVE_HIERARCHY_TEST_TAG)
             )
           }

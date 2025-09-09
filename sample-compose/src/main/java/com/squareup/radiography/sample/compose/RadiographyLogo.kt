@@ -32,7 +32,7 @@ import kotlin.math.roundToInt
   val innerImage = painterResource(R.drawable.logo_inner)
   val aspectRatio = outerImage.intrinsicSize.width / outerImage.intrinsicSize.height
 
-  Box(modifier.aspectRatio(aspectRatio)) {
+  Box(modifier.aspectRatio(aspectRatio), propagateMinConstraints = true) {
     Image(outerImage, contentDescription = null)
     InfiniteMirror(
       centerOffsetFraction = Offset(.5f, .59f),
