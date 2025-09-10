@@ -63,20 +63,20 @@ tasks.withType<KotlinCompile> {
 }
 
 dependencies {
-  implementation(Dependencies.Curtains)
+  implementation(libs.curtains)
   // We don't want to bring any Compose dependencies in unless the consumer of this library is
   // bringing them in itself.
-  compileOnly(Dependencies.Compose().ToolingData)
+  compileOnly(libs.compose.toolingData)
 
-  testImplementation(Dependencies.JUnit)
-  testImplementation(Dependencies.Mockito)
-  testImplementation(Dependencies.Robolectric)
-  testImplementation(Dependencies.Truth)
+  testImplementation(libs.test.junit)
+  testImplementation(libs.test.mockito)
+  testImplementation(libs.test.robolectric)
+  testImplementation(libs.test.truth)
 
-  androidTestImplementation(Dependencies.InstrumentationTests.Core)
-  androidTestImplementation(Dependencies.InstrumentationTests.Espresso)
-  androidTestImplementation(Dependencies.InstrumentationTests.Rules)
-  androidTestImplementation(Dependencies.InstrumentationTests.Runner)
-  androidTestImplementation(Dependencies.Truth)
-  androidTestUtil(Dependencies.InstrumentationTests.Orchestrator)
+  androidTestImplementation(libs.test.androidx.core)
+  androidTestImplementation(libs.test.androidx.espresso)
+  androidTestImplementation(libs.test.androidx.rules)
+  androidTestImplementation(libs.test.androidx.runner)
+  androidTestImplementation(libs.test.truth)
+  androidTestUtil(libs.test.androidx.orchestrator)
 }

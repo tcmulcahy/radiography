@@ -25,7 +25,7 @@ android {
   }
 
   composeOptions {
-    kotlinCompilerExtensionVersion = Versions.ComposeCompiler
+    kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
   }
 
   packaging {
@@ -49,11 +49,11 @@ tasks.withType<KotlinCompile> {
 
 dependencies {
   androidTestImplementation(project(":radiography"))
-  androidTestImplementation(Dependencies.AppCompat)
-  androidTestImplementation(Dependencies.Compose().Material)
-  androidTestImplementation(Dependencies.Compose().Testing)
-  androidTestImplementation(Dependencies.Compose().Tooling)
-  androidTestImplementation(Dependencies.InstrumentationTests.Rules)
-  androidTestImplementation(Dependencies.InstrumentationTests.Runner)
-  androidTestImplementation(Dependencies.Truth)
+  androidTestImplementation(libs.appCompat)
+  androidTestImplementation(libs.compose.material)
+  androidTestImplementation(libs.compose.testing)
+  androidTestImplementation(libs.compose.tooling)
+  androidTestImplementation(libs.test.androidx.rules)
+  androidTestImplementation(libs.test.androidx.runner)
+  androidTestImplementation(libs.test.truth)
 }
