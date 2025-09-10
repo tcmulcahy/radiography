@@ -5,10 +5,6 @@ plugins {
   kotlin("android")
 }
 
-/** Use a separate property for the sample so we can test with different versions easily. */
-val sampleComposeVersion = "1.6.8"
-val sampleComposeCompilerVersion = "1.5.3"
-
 android {
   compileSdk = 34
 
@@ -29,7 +25,7 @@ android {
   }
 
   composeOptions {
-    kotlinCompilerExtensionVersion = sampleComposeCompilerVersion
+    kotlinCompilerExtensionVersion = libs.versions.compose.sample.compiler.get()
   }
 
   packaging {
@@ -53,12 +49,12 @@ tasks.withType<KotlinCompile> {
 
 dependencies {
   implementation(project(":radiography"))
-  implementation(Dependencies.AppCompat)
-  implementation(Dependencies.Compose(sampleComposeVersion).Activity())
-  implementation(Dependencies.Compose(sampleComposeVersion).Material)
-  implementation(Dependencies.Compose(sampleComposeVersion).Tooling)
+  implementation(libs.appCompat)
+  implementation(libs.compose.sample.activity)
+  implementation(libs.compose.sample.material)
+  implementation(libs.compose.sample.tooling)
 
-  androidTestImplementation(Dependencies.Compose(sampleComposeVersion).Testing)
-  androidTestImplementation(Dependencies.InstrumentationTests.Rules)
-  androidTestImplementation(Dependencies.InstrumentationTests.Runner)
+  androidTestImplementation(libs.compose.sample.testing)
+  androidTestImplementation(libs.test.androidx.rules)
+  androidTestImplementation(libs.test.androidx.runner)
 }

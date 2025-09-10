@@ -5,12 +5,6 @@ plugins {
   kotlin("android")
 }
 
-/**
- * Allows using a different version of Compose to validate that we degrade gracefully on apps
- * built with unsupported Compose versions.
- */
-val oldComposeVersion = "1.3.0"
-
 android {
   compileSdk = 34
 
@@ -31,7 +25,7 @@ android {
   }
 
   composeOptions {
-    kotlinCompilerExtensionVersion = Versions.ComposeCompiler
+    kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
   }
 
   packaging {
@@ -55,12 +49,12 @@ tasks.withType<KotlinCompile> {
 
 dependencies {
   androidTestImplementation(project(":radiography"))
-  androidTestImplementation(Dependencies.AppCompat)
-  androidTestImplementation(Dependencies.Compose().Activity("1.3.0-alpha02"))
-  androidTestImplementation(Dependencies.Compose(oldComposeVersion).Material)
-  androidTestImplementation(Dependencies.Compose(oldComposeVersion).Testing)
-  androidTestImplementation(Dependencies.InstrumentationTests.Rules)
-  androidTestImplementation(Dependencies.InstrumentationTests.JUnit)
-  androidTestImplementation(Dependencies.InstrumentationTests.Runner)
-  androidTestImplementation(Dependencies.Truth)
+  androidTestImplementation(libs.appCompat)
+  androidTestImplementation(libs.compose.old.activity)
+  androidTestImplementation(libs.compose.old.material)
+  androidTestImplementation(libs.compose.old.testing)
+  androidTestImplementation(libs.test.androidx.rules)
+  androidTestImplementation(libs.test.junit)
+  androidTestImplementation(libs.test.androidx.runner)
+  androidTestImplementation(libs.test.truth)
 }

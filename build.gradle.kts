@@ -21,7 +21,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jlleitschuh.gradle.ktlint.KtlintExtension
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
-println("Building with Kotlin compiler version ${Versions.KotlinCompiler}")
+println("Building with Kotlin compiler version ${libs.versions.kotlin.get()}")
 
 buildscript {
   repositories {
@@ -33,14 +33,14 @@ buildscript {
   }
 
   dependencies {
-    classpath(Dependencies.Build.Android)
-    classpath(Dependencies.Build.MavenPublish)
-    classpath(Dependencies.Build.Kotlin)
-    classpath(Dependencies.Build.Ktlint)
-    classpath(Dependencies.Build.BinaryCompatibility)
+    classpath(libs.build.android)
+    classpath(libs.build.mavenPublish)
+    classpath(libs.build.kotlin)
+    classpath(libs.build.ktlint)
+    classpath(libs.build.binaryCompatibility)
     // Required for the gradle-maven-publish-plugin plugin.
     // See https://github.com/vanniktech/gradle-maven-publish-plugin/issues/205.
-    classpath(Dependencies.Build.Dokka)
+    classpath(libs.build.dokka)
   }
 }
 

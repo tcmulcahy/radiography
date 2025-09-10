@@ -39,13 +39,13 @@ android {
 
 dependencies {
   implementation(project(":radiography"))
-  implementation(Dependencies.AppCompat)
-  implementation(Dependencies.ConstraintLayout)
+  implementation(libs.appCompat)
+  implementation(libs.constraintLayout)
 
-  androidTestImplementation(Dependencies.InstrumentationTests.Core)
-  androidTestImplementation(Dependencies.InstrumentationTests.Espresso)
-  androidTestImplementation(Dependencies.InstrumentationTests.Rules)
-  androidTestImplementation(Dependencies.InstrumentationTests.JUnit)
-  androidTestImplementation(Dependencies.InstrumentationTests.Runner)
-  androidTestImplementation(Dependencies.Truth)
+  androidTestImplementation(libs.test.androidx.core)
+  androidTestImplementation(libs.test.androidx.espresso)
+  androidTestImplementation(libs.test.androidx.rules)
+  androidTestImplementation(libs.test.androidx.junit)
+  androidTestImplementation(libs.test.androidx.runner)
+  androidTestImplementation(libs.test.truth)
 }
